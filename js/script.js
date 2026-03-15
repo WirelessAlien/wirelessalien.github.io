@@ -1,11 +1,24 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", mobileMenu);
+if (hamburger) {
+  hamburger.addEventListener("click", mobileMenu);
+}
 
 function mobileMenu() {
   hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+  navMenu.classList.toggle("hidden");
+  navMenu.classList.toggle("flex");
+  
+  // Toggle icon between menu and close
+  const icon = hamburger.querySelector(".material-symbols-outlined");
+  if (icon) {
+    if (hamburger.classList.contains("active")) {
+      icon.textContent = "close";
+    } else {
+      icon.textContent = "menu";
+    }
+  }
 }
 
 // Close navbar when link is clicked
@@ -14,8 +27,15 @@ const navLink = document.querySelectorAll(".nav-link");
 navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("active");
+  if (hamburger) {
+    hamburger.classList.remove("active");
+    const icon = hamburger.querySelector(".material-symbols-outlined");
+    if (icon) icon.textContent = "menu";
+  }
+  if (navMenu) {
+    navMenu.classList.add("hidden");
+    navMenu.classList.remove("flex");
+  }
 }
 
 // Event Listeners: Handling toggle event
@@ -31,7 +51,9 @@ function switchTheme(e) {
   }
 }
 
-toggleSwitch.addEventListener("change", switchTheme, false);
+if (toggleSwitch) {
+  toggleSwitch.addEventListener("change", switchTheme, false);
+}
 
 //  Store color theme for future visits
 
@@ -54,7 +76,7 @@ const currentTheme = localStorage.getItem("theme")
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  if (currentTheme === "dark") {
+  if (currentTheme === "dark" && toggleSwitch) {
     toggleSwitch.checked = true;
   }
 }

@@ -32,12 +32,18 @@
 <h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight">WirelessAlien</h2>
 </a>
 </div>
-<div class="flex items-center gap-4">
+<nav class="nav-menu hidden absolute top-16 left-0 w-full bg-background-light/95 dark:bg-slate-950/95 flex-col shadow-lg p-6 gap-6 md:p-0 md:static md:bg-transparent md:dark:bg-transparent md:shadow-none md:flex md:flex-row md:items-center md:gap-8 md:w-auto">
+<a class="nav-link text-sm font-medium hover:text-primary transition-colors" href="index.html#projects">Projects</a>
+<a class="nav-link text-sm font-medium hover:text-primary transition-colors" href="contact.html">Contact</a>
+<a class="nav-link text-sm font-medium hover:text-primary transition-colors" href="donate.html">Donate</a>
 <button aria-label="Toggle dark mode" class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary hover:bg-primary/20 transition-colors" id="theme-toggle">
 <span class="material-symbols-outlined text-[20px] hidden" id="theme-toggle-dark-icon">dark_mode</span>
 <span class="material-symbols-outlined text-[20px] hidden" id="theme-toggle-light-icon">light_mode</span>
 </button>
-</div>
+</nav>
+<button class="hamburger md:hidden text-slate-900 dark:text-white flex items-center justify-center h-10 w-10">
+<span class="material-symbols-outlined">menu</span>
+</button>
 </header>
 <main class="flex flex-1 justify-center py-12 px-6 lg:px-40">
 <div class="layout-content-container flex flex-col max-w-[800px] flex-1">
