@@ -20,15 +20,15 @@ export function Hero() {
       </div>
       
       <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-on-background mb-4">
-        Hello, I'm WirelessAlien
+        Hello, I'm Abhilash
       </h1>
       
       <h2 className="text-xl md:text-2xl text-on-surface-variant font-medium mb-8 max-w-2xl">
-        A passionate Android Developer from Earth
+        Android Developer & Open-Source Enthusiast
       </h2>
       
       <p className="text-lg text-on-surface-variant max-w-3xl mb-10 leading-relaxed">
-        Crafting exceptional mobile experiences through clean code, user-centric design, and continuous learning.
+        Building high-performance, privacy-focused, and intuitive Android applications with modern Kotlin and clean architecture.
       </p>
       
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

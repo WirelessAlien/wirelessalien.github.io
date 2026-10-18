@@ -1,4 +1,4 @@
-import { Github, Mail, Twitter, Send } from 'lucide-react';
+import { Github, Mail, Send } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { scrollToSection } from '../utils';
 
@@ -52,15 +52,6 @@ export function Footer() {
             aria-label="Telegram"
           >
             <Send size={18} />
-          </a>
-          <a 
-            href="https://x.com/wirelessalien" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex h-11 w-11 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-on-primary transition-all"
-            aria-label="Twitter/X"
-          >
-            <Twitter size={18} />
           </a>
           <a 
             href="https://github.com/WirelessAlien" 

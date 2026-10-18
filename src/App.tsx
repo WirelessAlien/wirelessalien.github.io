@@ -4,7 +4,7 @@
  */
 
 import { useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { TopAppBar } from './components/TopAppBar';
 import { Home } from './components/Home';
 import { Donate } from './components/Donate';
@@ -29,7 +29,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <ThemeProvider defaultTheme="system">
-      <HashRouter>
+      <BrowserRouter>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col bg-surface font-sans text-on-background selection:bg-primary-container selection:text-on-primary-container">
           <TopAppBar />
@@ -46,7 +46,7 @@ export default function App() {
           </div>
           <Footer />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
