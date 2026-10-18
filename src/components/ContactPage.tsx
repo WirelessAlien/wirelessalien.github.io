@@ -7,6 +7,7 @@ import { Button } from './Button';
 const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfKV_w-QIsmMZS6cP3f6UjuSii-Xy8XiIh1Mw4FEo_CTl4I9A/formResponse';
 const ENTRY_IDS = {
   name: 'entry.2005620554',
+  email: 'entry.1637184694',
   address: 'entry.1065046570',
   phone: 'entry.1166974658',
   message: 'entry.839337160',
@@ -15,6 +16,7 @@ const ENTRY_IDS = {
 export function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     address: '',
     phone: '',
     message: '',
@@ -30,9 +32,9 @@ export function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.message.trim()) {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus('error');
-      setErrorMessage('Please fill in your name and message.');
+      setErrorMessage('Please fill in your name, email, and message.');
       return;
     }
 
@@ -42,6 +44,7 @@ export function ContactPage() {
     try {
       const formBody = new URLSearchParams();
       formBody.append(ENTRY_IDS.name, formData.name);
+      formBody.append(ENTRY_IDS.email, formData.email);
       formBody.append(ENTRY_IDS.address, formData.address);
       formBody.append(ENTRY_IDS.phone, formData.phone);
       formBody.append(ENTRY_IDS.message, formData.message);
@@ -56,7 +59,7 @@ export function ContactPage() {
       });
 
       setStatus('success');
-      setFormData({ name: '', address: '', phone: '', message: '' });
+      setFormData({ name: '', email: '', address: '', phone: '', message: '' });
     } catch {
       setStatus('error');
       setErrorMessage('There was an issue sending your message. Please try again or reach out directly via email or Telegram.');
@@ -130,6 +133,27 @@ export function ContactPage() {
                       required
                       placeholder="Your name"
                       value={formData.name}
+                      onChange={handleChange}
+                      className="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold text-on-surface mb-2">
+                    Email address <span className="text-error">*</span>
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant/70">
+                      <Mail size={18} />
+                    </div>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      placeholder="your.email@example.com"
+                      value={formData.email}
                       onChange={handleChange}
                       className="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all"
                     />
@@ -211,12 +235,8 @@ export function ContactPage() {
                   className="w-full h-12 text-base font-medium flex items-center justify-center gap-2"
                   icon={<Send size={18} />}
                 >
-                  {status === 'submitting' ? 'Submitting to Google Forms...' : 'Send Message'}
+                  {status === 'submitting' ? 'Submitting...' : 'Send Message'}
                 </Button>
-
-                <p className="text-center text-xs text-on-surface-variant/70">
-                  Data submitted is sent securely to Google Forms.
-                </p>
               </form>
             )}
           </div>
@@ -254,26 +274,6 @@ export function ContactPage() {
                 <div>
                   <h3 className="text-base font-bold text-on-surface">Telegram</h3>
                   <p className="text-sm text-on-surface-variant">@WirelessAlien</p>
-                </div>
-              </div>
-              <ExternalLink size={18} className="text-primary/50 group-hover:text-primary transition-colors" />
-            </a>
-
-            <a
-              href="https://x.com/wirelessalien"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between p-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container"
-            >
-              <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-xl bg-surface-variant text-on-surface-variant flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-base font-bold text-on-surface">Twitter / X</h3>
-                  <p className="text-sm text-on-surface-variant">@wirelessalien</p>
                 </div>
               </div>
               <ExternalLink size={18} className="text-primary/50 group-hover:text-primary transition-colors" />
