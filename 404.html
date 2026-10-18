@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./WirelessAlien-minimal-blue-tight.svg" />
+    <meta name="description" content="WirelessAlien - Android Developer Portfolio. Building open-source mobile tools and applications." />
+    <title>WirelessAlien - Android Developer</title>
+    <!-- STATIC-FALLBACK-START -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Roboto', 'Inter', 'system-ui', 'sans-serif'] },
+            colors: {
+              'primary': 'var(--md-sys-color-primary)',
+              'on-primary': 'var(--md-sys-color-on-primary)',
+              'primary-container': 'var(--md-sys-color-primary-container)',
+              'on-primary-container': 'var(--md-sys-color-on-primary-container)',
+              'secondary': 'var(--md-sys-color-secondary)',
+              'on-secondary': 'var(--md-sys-color-on-secondary)',
+              'secondary-container': 'var(--md-sys-color-secondary-container)',
+              'on-secondary-container': 'var(--md-sys-color-on-secondary-container)',
+              'tertiary': 'var(--md-sys-color-tertiary)',
+              'on-tertiary': 'var(--md-sys-color-on-tertiary)',
+              'tertiary-container': 'var(--md-sys-color-tertiary-container)',
+              'on-tertiary-container': 'var(--md-sys-color-on-tertiary-container)',
+              'error': 'var(--md-sys-color-error)',
+              'on-error': 'var(--md-sys-color-on-error)',
+              'error-container': 'var(--md-sys-color-error-container)',
+              'on-error-container': 'var(--md-sys-color-on-error-container)',
+              'background': 'var(--md-sys-color-background)',
+              'on-background': 'var(--md-sys-color-on-background)',
+              'surface': 'var(--md-sys-color-surface)',
+              'on-surface': 'var(--md-sys-color-on-surface)',
+              'surface-variant': 'var(--md-sys-color-surface-variant)',
+              'on-surface-variant': 'var(--md-sys-color-on-surface-variant)',
+              'outline': 'var(--md-sys-color-outline)',
+              'outline-variant': 'var(--md-sys-color-outline-variant)',
+              'surface-container-highest': 'var(--md-sys-color-surface-container-highest)',
+              'surface-container-high': 'var(--md-sys-color-surface-container-high)',
+              'surface-container': 'var(--md-sys-color-surface-container)',
+              'surface-container-low': 'var(--md-sys-color-surface-container-low)',
+              'surface-container-lowest': 'var(--md-sys-color-surface-container-lowest)',
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        --md-sys-color-primary: #00629D; --md-sys-color-on-primary: #FFFFFF;
+        --md-sys-color-primary-container: #CFE5FF; --md-sys-color-on-primary-container: #001D34;
+        --md-sys-color-secondary: #526070; --md-sys-color-on-secondary: #FFFFFF;
+        --md-sys-color-secondary-container: #D5E4F7; --md-sys-color-on-secondary-container: #0E1D2A;
+        --md-sys-color-tertiary: #695779; --md-sys-color-on-tertiary: #FFFFFF;
+        --md-sys-color-tertiary-container: #F0DBFF; --md-sys-color-on-tertiary-container: #241532;
+        --md-sys-color-error: #BA1A1A; --md-sys-color-on-error: #FFFFFF;
+        --md-sys-color-error-container: #FFDAD6; --md-sys-color-on-error-container: #410002;
+        --md-sys-color-background: #FCFCFF; --md-sys-color-on-background: #1A1C1E;
+        --md-sys-color-surface: #FCFCFF; --md-sys-color-on-surface: #1A1C1E;
+        --md-sys-color-surface-variant: #DFE3EB; --md-sys-color-on-surface-variant: #42474E;
+        --md-sys-color-outline: #73777F; --md-sys-color-outline-variant: #C2C7CF;
+        --md-sys-color-surface-container-highest: #E2E2E6; --md-sys-color-surface-container-high: #E8E8EC;
+        --md-sys-color-surface-container: #EEEEF1; --md-sys-color-surface-container-low: #F3F3F7;
+        --md-sys-color-surface-container-lowest: #FFFFFF;
+      }
+      .dark {
+        --md-sys-color-primary: #9ECAFF; --md-sys-color-on-primary: #003255;
+        --md-sys-color-primary-container: #004978; --md-sys-color-on-primary-container: #CFE5FF;
+        --md-sys-color-secondary: #B9C8DA; --md-sys-color-on-secondary: #243240;
+        --md-sys-color-secondary-container: #3B4857; --md-sys-color-on-secondary-container: #D5E4F7;
+        --md-sys-color-tertiary: #D4BEE6; --md-sys-color-on-tertiary: #392A49;
+        --md-sys-color-tertiary-container: #504060; --md-sys-color-on-tertiary-container: #F0DBFF;
+        --md-sys-color-error: #FFB4AB; --md-sys-color-on-error: #690005;
+        --md-sys-color-error-container: #93000A; --md-sys-color-on-error-container: #FFDAD6;
+        --md-sys-color-background: #1A1C1E; --md-sys-color-on-background: #E2E2E6;
+        --md-sys-color-surface: #1A1C1E; --md-sys-color-on-surface: #E2E2E6;
+        --md-sys-color-surface-variant: #42474E; --md-sys-color-on-surface-variant: #C2C7CF;
+        --md-sys-color-outline: #8C9199; --md-sys-color-outline-variant: #42474E;
+        --md-sys-color-surface-container-highest: #333538; --md-sys-color-surface-container-high: #2D2F31;
+        --md-sys-color-surface-container: #212427; --md-sys-color-surface-container-low: #1C1E21;
+        --md-sys-color-surface-container-lowest: #0C0E11;
+      }
+      html { scroll-behavior: smooth; }
+      body { background-color: var(--md-sys-color-background); color: var(--md-sys-color-on-background); -webkit-font-smoothing: antialiased; }
+    </style>
+    <!-- STATIC-FALLBACK-END -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+    <!-- STATIC-FALLBACK-START -->
+    <script src="./public/static-fallback.js" defer></script>
+    <!-- STATIC-FALLBACK-END -->
+  </body>
+</html>

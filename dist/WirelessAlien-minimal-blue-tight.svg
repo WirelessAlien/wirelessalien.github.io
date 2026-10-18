@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Wifi Signal Arcs -->
+  <path d="M 178 70 C 224 38 288 38 334 70" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 202 104 C 234 80 278 80 310 104" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 226 138 C 242 124 270 124 286 138" stroke="#38bdf8" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Antenna Node -->
+  <circle cx="256" cy="144" r="7" fill="#38bdf8"/>
+  
+  <!-- Alien Head Outline -->
+  <path d="M 256 166 C 146 166 94 250 94 330 C 94 394 176 450 256 476 C 336 450 418 394 418 330 C 418 250 366 166 256 166 Z" 
+        stroke="#38bdf8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Left Eye -->
+  <path d="M 146 280 C 180 270 236 304 252 356 C 218 366 162 332 146 280 Z" 
+        stroke="#38bdf8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right Eye -->
+  <path d="M 366 280 C 332 270 276 304 260 356 C 294 366 350 332 366 280 Z" 
+        stroke="#38bdf8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Mouth -->
+  <path d="M 232 430 C 244 440 268 440 280 430" 
+        stroke="#38bdf8" stroke-width="14" stroke-linecap="round"/>
+</svg>

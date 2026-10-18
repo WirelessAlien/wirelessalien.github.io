@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./WirelessAlien-minimal-blue-tight.svg" />
+    <meta name="description" content="WirelessAlien - Android Developer Portfolio. Building open-source mobile tools and applications." />
+    <title>WirelessAlien - Android Developer</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              'primary': 'var(--md-sys-color-primary)',
+              'on-primary': 'var(--md-sys-color-on-primary)',
+              'primary-container': 'var(--md-sys-color-primary-container)',
+              'on-primary-container': 'var(--md-sys-color-on-primary-container)',
+              'secondary': 'var(--md-sys-color-secondary)',
+              'on-secondary': 'var(--md-sys-color-on-secondary)',
+              'secondary-container': 'var(--md-sys-color-secondary-container)',
+              'on-secondary-container': 'var(--md-sys-color-on-secondary-container)',
+              'tertiary': 'var(--md-sys-color-tertiary)',
+              'on-tertiary': 'var(--md-sys-color-on-tertiary)',
+              'tertiary-container': 'var(--md-sys-color-tertiary-container)',
+              'on-tertiary-container': 'var(--md-sys-color-on-tertiary-container)',
+              'error': 'var(--md-sys-color-error)',
+              'on-error': 'var(--md-sys-color-on-error)',
+              'error-container': 'var(--md-sys-color-error-container)',
+              'on-error-container': 'var(--md-sys-color-on-error-container)',
+              'background': 'var(--md-sys-color-background)',
+              'on-background': 'var(--md-sys-color-on-background)',
+              'surface': 'var(--md-sys-color-surface)',
+              'on-surface': 'var(--md-sys-color-on-surface)',
+              'surface-variant': 'var(--md-sys-color-surface-variant)',
+              'on-surface-variant': 'var(--md-sys-color-on-surface-variant)',
+              'outline': 'var(--md-sys-color-outline)',
+              'outline-variant': 'var(--md-sys-color-outline-variant)',
+              'surface-container-highest': 'var(--md-sys-color-surface-container-highest)',
+              'surface-container-high': 'var(--md-sys-color-surface-container-high)',
+              'surface-container': 'var(--md-sys-color-surface-container)',
+              'surface-container-low': 'var(--md-sys-color-surface-container-low)',
+              'surface-container-lowest': 'var(--md-sys-color-surface-container-lowest)',
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      :root {
+        /* Material 3 Light Theme Colors (Elegant Blue/Slate) */
+        --md-sys-color-primary: #00629D;
+        --md-sys-color-on-primary: #FFFFFF;
+        --md-sys-color-primary-container: #CFE5FF;
+        --md-sys-color-on-primary-container: #001D34;
+        
+        --md-sys-color-secondary: #526070;
+        --md-sys-color-on-secondary: #FFFFFF;
+        --md-sys-color-secondary-container: #D5E4F7;
+        --md-sys-color-on-secondary-container: #0E1D2A;
+        
+        --md-sys-color-tertiary: #695779;
+        --md-sys-color-on-tertiary: #FFFFFF;
+        --md-sys-color-tertiary-container: #F0DBFF;
+        --md-sys-color-on-tertiary-container: #241532;
+        
+        --md-sys-color-error: #BA1A1A;
+        --md-sys-color-on-error: #FFFFFF;
+        --md-sys-color-error-container: #FFDAD6;
+        --md-sys-color-on-error-container: #410002;
+        
+        --md-sys-color-background: #FCFCFF;
+        --md-sys-color-on-background: #1A1C1E;
+        
+        --md-sys-color-surface: #FCFCFF;
+        --md-sys-color-on-surface: #1A1C1E;
+        --md-sys-color-surface-variant: #DFE3EB;
+        --md-sys-color-on-surface-variant: #42474E;
+        --md-sys-color-outline: #73777F;
+        --md-sys-color-outline-variant: #C2C7CF;
+        
+        --md-sys-color-surface-container-highest: #E2E2E6;
+        --md-sys-color-surface-container-high: #E8E8EC;
+        --md-sys-color-surface-container: #EEEEF1;
+        --md-sys-color-surface-container-low: #F3F3F7;
+        --md-sys-color-surface-container-lowest: #FFFFFF;
+      }
+
+      .dark {
+        --md-sys-color-primary: #9ECAFF;
+        --md-sys-color-on-primary: #003255;
+        --md-sys-color-primary-container: #004978;
+        --md-sys-color-on-primary-container: #CFE5FF;
+        
+        --md-sys-color-secondary: #B9C8DA;
+        --md-sys-color-on-secondary: #243240;
+        --md-sys-color-secondary-container: #3B4857;
+        --md-sys-color-on-secondary-container: #D5E4F7;
+        
+        --md-sys-color-tertiary: #D4BEE6;
+        --md-sys-color-on-tertiary: #392A49;
+        --md-sys-color-tertiary-container: #504060;
+        --md-sys-color-on-tertiary-container: #F0DBFF;
+        
+        --md-sys-color-error: #FFB4AB;
+        --md-sys-color-on-error: #690005;
+        --md-sys-color-error-container: #93000A;
+        --md-sys-color-on-error-container: #FFDAD6;
+        
+        --md-sys-color-background: #1A1C1E;
+        --md-sys-color-on-background: #E2E2E6;
+        
+        --md-sys-color-surface: #1A1C1E;
+        --md-sys-color-on-surface: #E2E2E6;
+        --md-sys-color-surface-variant: #42474E;
+        --md-sys-color-on-surface-variant: #C2C7CF;
+        --md-sys-color-outline: #8C9199;
+        --md-sys-color-outline-variant: #42474E;
+        
+        --md-sys-color-surface-container-highest: #333538;
+        --md-sys-color-surface-container-high: #2D2F31;
+        --md-sys-color-surface-container: #212427;
+        --md-sys-color-surface-container-low: #1C1E21;
+        --md-sys-color-surface-container-lowest: #0C0E11;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--md-sys-color-background);
+        color: var(--md-sys-color-on-background);
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      (function () {
+        var LOGO_SVG = "./WirelessAlien-minimal-blue-tight.svg";
+        var GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfKV_w-QIsmMZS6cP3f6UjuSii-Xy8XiIh1Mw4FEo_CTl4I9A/formResponse";
+        var ENTRY_IDS = {
+          name: "entry.2005620554",
+          address: "entry.1065046570",
+          phone: "entry.1166974658",
+          message: "entry.839337160"
+        };
+
+        var projectsData = [
+          {
+            id: "showcase",
+            title: "ShowCase",
+            description: "An open-source android application for exploring and organizing collection of films and television series.",
+            longDescription: "ShowCase is a comprehensive movie and TV show tracking application for Android. It allows users to discover new content, view detailed information about their favorite films and series, and keep track of what they want to watch. Built with clean architecture and modern Android development practices.",
+            features: [
+              "Browse popular, top-rated, and trending movies and TV shows",
+              "View detailed information including cast, crew, and trailers",
+              "Search functionality to find specific titles",
+              "Save favorites for easy access later",
+              "Modern, responsive user interface"
+            ],
+            link: "https://github.com/WirelessAlien/MovieDB",
+            tags: ["Android", "Kotlin", "Open Source"],
+            color: "bg-blue-100",
+            type: "github",
+            icon: "./showcase_icon.png"
+          },
+          {
+            id: "zipxtract",
+            title: "ZipXtract",
+            description: "An open-source Android application designed for comprehensive archive management.",
+            longDescription: "ZipXtract is a powerful utility application for Android that simplifies working with compressed files. It provides a user-friendly interface to extract various archive formats and create new ones, making file management on mobile devices effortless.",
+            features: [
+              "Extract popular archive formats (ZIP, RAR, 7Z, TAR)",
+              "Create new ZIP archives from selected files",
+              "Built-in file explorer for easy navigation",
+              "Support for password-protected archives",
+              "Fast extraction and compression speeds"
+            ],
+            link: "https://github.com/WirelessAlien/ZipXtract",
+            tags: ["Android", "Kotlin", "Open Source"],
+            color: "bg-indigo-100",
+            type: "github",
+            icon: "./zipxtract_icon.png"
+          },
+          {
+            id: "bhagavadgitaapp",
+            title: "BhagavadGitaApp",
+            description: "A Simple Open-source Android App for Bhagavad Gita.",
+            longDescription: "This application provides a serene and distraction-free environment to read and contemplate the teachings of the Bhagavad Gita. Designed with a focus on typography and readability, it brings the ancient wisdom to your fingertips in a modern format.",
+            features: [
+              "Access to all 18 chapters and 700 verses",
+              "Multiple translations and commentaries available",
+              "Clean, minimalist reading interface",
+              "Offline support for reading anywhere",
+              "Bookmark favorite verses"
+            ],
+            link: "https://github.com/WirelessAlien/BhagavadGitaApp",
+            tags: ["Android", "Kotlin", "Open Source"],
+            color: "bg-purple-100",
+            type: "github",
+            icon: "./gita_icon.png"
+          },
+          {
+            id: "files",
+            title: "Files",
+            description: "An Android file manager application.",
+            longDescription: "Files is a streamlined, efficient file manager for Android devices. It offers a clean Material Design interface that makes organizing, finding, and managing your local storage a breeze. Built for speed and reliability, it covers all your daily file management needs.",
+            features: [
+              "Navigate internal storage and SD cards",
+              "Standard operations: copy, move, delete, rename, share",
+              "Storage analysis to find large files",
+              "Built-in viewers for common file types",
+              "Clean Material 3 design"
+            ],
+            link: "https://play.google.com/store/apps/details?id=com.wirelessalien.files",
+            tags: ["Android", "Kotlin", "Closed Source"],
+            color: "bg-emerald-100",
+            type: "playstore",
+            icon: "./files_icon.png"
+          }
+        ];
+
+        var icons = {
+          sun: '<svg class="h-5 w-5 hidden dark:block" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>',
+          moon: '<svg class="h-5 w-5 block dark:hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>',
+          menu: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>',
+          x: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>',
+          code2: '<svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>',
+          github: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>',
+          externalLink: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>',
+          messageSquare: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
+          send: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
+          mail: '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+          twitter: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>',
+          heart: '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>',
+          arrowLeft: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>',
+          checkCircle2: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>',
+          user: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+          mapPin: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
+          phone: '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+          alertCircle: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>'
+        };
+
+        var state = {
+          theme: "system",
+          isMenuOpen: false,
+          route: "/",
+          formStatus: "idle",
+          formError: "",
+          formData: {
+            name: "",
+            address: "",
+            phone: "",
+            message: ""
+          }
+        };
+
+        try {
+          var savedTheme = window.localStorage.getItem("vite-ui-theme");
+          if (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system") {
+            state.theme = savedTheme;
+          }
+        } catch (e) {}
+
+        function applyTheme() {
+          var root = document.documentElement;
+          root.classList.remove("light", "dark");
+          if (state.theme === "system") {
+            var isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            root.classList.add(isDark ? "dark" : "light");
+          } else {
+            root.classList.add(state.theme);
+          }
+        }
+
+        function toggleTheme() {
+          var isCurrentlyDark = document.documentElement.classList.contains("dark");
+          state.theme = isCurrentlyDark ? "light" : "dark";
+          try {
+            window.localStorage.setItem("vite-ui-theme", state.theme);
+          } catch (e) {}
+          applyTheme();
+        }
+
+        function parseHashRoute() {
+          var hash = window.location.hash || "#/";
+          if (hash.indexOf("#/") === 0) {
+            return hash.slice(1);
+          }
+          if (hash === "#about") return "/about";
+          if (hash === "#projects") return "/projects";
+          return "/";
+        }
+
+        function navigate(path, scrollTarget) {
+          state.isMenuOpen = false;
+          state.route = path;
+          if (window.location.hash !== "#" + path) {
+            history.pushState(null, "", "#" + path);
+          }
+          render();
+          if (scrollTarget) {
+            setTimeout(function () {
+              var el = document.getElementById(scrollTarget);
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 50);
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }
+
+        function scrollToSection(sectionId) {
+          state.isMenuOpen = false;
+          if (state.route !== "/" && state.route !== "/about" && state.route !== "/projects") {
+            navigate("/", sectionId);
+            return;
+          }
+          render();
+          var el = document.getElementById(sectionId);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+
+        function renderTopAppBar() {
+          var isContact = state.route === "/contact";
+          var isDonate = state.route === "/donate";
+          var contactClass = isContact
+            ? "bg-primary-container text-on-primary-container"
+            : "text-on-surface hover:bg-surface-variant";
+          var donateClass = isDonate
+            ? "bg-primary-container text-on-primary-container"
+            : "text-on-surface hover:bg-surface-variant";
+
+          var mobileMenuHtml = "";
+          if (state.isMenuOpen) {
+            mobileMenuHtml =
+              '<div class="fixed inset-0 top-16 z-40 bg-surface md:hidden border-t border-outline-variant/30">' +
+                '<nav class="flex flex-col p-4 gap-2">' +
+                  '<button type="button" data-action="scroll" data-target="about" class="text-left px-4 py-4 rounded-xl text-lg font-medium text-on-surface hover:bg-surface-variant transition-colors">About</button>' +
+                  '<button type="button" data-action="scroll" data-target="projects" class="text-left px-4 py-4 rounded-xl text-lg font-medium text-on-surface hover:bg-surface-variant transition-colors">Projects</button>' +
+                  '<button type="button" data-action="nav" data-path="/contact" class="text-left px-4 py-4 rounded-xl text-lg font-medium transition-colors ' + contactClass + '">Contact</button>' +
+                  '<button type="button" data-action="nav" data-path="/donate" class="text-left px-4 py-4 rounded-xl text-lg font-medium transition-colors ' + donateClass + '">Donate</button>' +
+                '</nav>' +
+              '</div>';
+          }
+
+          return (
+            '<header class="fixed top-0 left-0 right-0 h-16 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 z-50 px-6 flex items-center justify-between">' +
+              '<div class="max-w-7xl mx-auto w-full flex items-center justify-between">' +
+                '<button type="button" data-action="nav" data-path="/" class="flex items-center gap-3 group cursor-pointer">' +
+                  '<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-sky-500/20 shadow-sm p-1.5 transition-transform group-hover:scale-105">' +
+                    '<img src="' + LOGO_SVG + '" alt="WirelessAlien Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(56,189,248,0.6)]" />' +
+                  '</div>' +
+                  '<span class="text-xl font-bold tracking-tight text-on-background">WirelessAlien</span>' +
+                '</button>' +
+                '<div class="flex items-center">' +
+                  '<nav class="hidden md:flex items-center gap-2 mr-2">' +
+                    '<button type="button" data-action="scroll" data-target="about" class="px-4 py-2 rounded-full text-sm font-medium text-on-surface hover:bg-surface-variant transition-colors cursor-pointer">About</button>' +
+                    '<button type="button" data-action="scroll" data-target="projects" class="px-4 py-2 rounded-full text-sm font-medium text-on-surface hover:bg-surface-variant transition-colors cursor-pointer">Projects</button>' +
+                    '<button type="button" data-action="nav" data-path="/contact" class="px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ' + contactClass + '">Contact</button>' +
+                    '<button type="button" data-action="nav" data-path="/donate" class="px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ' + donateClass + '">Donate</button>' +
+                  '</nav>' +
+                  '<button type="button" data-action="toggle-theme" class="p-2 rounded-full text-on-surface hover:bg-surface-variant transition-colors ml-4 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer" aria-label="Toggle theme">' +
+                    icons.sun + icons.moon +
+                  '</button>' +
+                  '<button type="button" data-action="toggle-menu" class="md:hidden ml-4 p-2 text-on-surface hover:bg-surface-variant rounded-full transition-colors cursor-pointer" aria-label="Toggle menu">' +
+                    (state.isMenuOpen ? icons.x : icons.menu) +
+                  '</button>' +
+                '</div>' +
+              '</div>' +
+            '</header>' +
+            mobileMenuHtml
+          );
+        }
+
+        function renderHome() {
+          var skills = ["Kotlin", "Java", "Jetpack Compose", "XML", "MVVM", "MVP", "Coroutines", "Flow", "Room Database", "Retrofit"];
+          var skillsHtml = skills.map(function (skill) {
+            return '<span class="inline-flex items-center px-4 py-2 rounded-lg bg-secondary-container text-on-secondary-container font-medium text-sm transition-transform hover:scale-105 cursor-default">' + skill + '</span>';
+          }).join("");
+
+          var projectsHtml = projectsData.map(function (project) {
+            var tagsHtml = project.tags.map(function (tag) {
+              return '<span class="px-3 py-1 text-xs font-medium bg-surface rounded-full text-on-surface-variant border border-outline-variant/30">' + tag + '</span>';
+            }).join("");
+
+            return (
+              '<div data-action="nav" data-path="/project/' + project.id + '" role="button" tabindex="0" class="group cursor-pointer text-left flex flex-col bg-surface-container-low rounded-[24px] overflow-hidden transition-all hover:bg-surface-container hover:shadow-md border border-outline-variant/50">' +
+                '<div class="h-48 w-full ' + project.color + ' flex items-center justify-center p-6 relative overflow-hidden">' +
+                  '<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-tertiary/10 mix-blend-overlay"></div>' +
+                  '<img src="' + project.icon + '" alt="' + project.title + '" class="w-24 h-24 rounded-2xl object-contain drop-shadow-md z-10 group-hover:scale-110 transition-transform duration-500" />' +
+                '</div>' +
+                '<div class="flex flex-col flex-1 p-8">' +
+                  '<div class="flex items-start justify-between mb-4">' +
+                    '<h3 class="text-xl font-bold text-on-surface group-hover:text-primary transition-colors">' + project.title + '</h3>' +
+                    '<div class="text-on-surface-variant group-hover:text-primary transition-colors">' +
+                      (project.type === "github" ? icons.github : icons.externalLink) +
+                    '</div>' +
+                  '</div>' +
+                  '<p class="text-on-surface-variant mb-8 flex-1 leading-relaxed">' + project.description + '</p>' +
+                  '<div class="flex flex-wrap gap-2 mt-auto">' + tagsHtml + '</div>' +
+                '</div>' +
+              '</div>'
+            );
+          }).join("");
+
+          return (
+            '<main>' +
+              /* Hero */
+              '<section class="relative overflow-hidden bg-surface pt-32 pb-20 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center px-6">' +
+                '<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-container/30 rounded-full blur-3xl -z-10"></div>' +
+                '<div class="relative mb-6 group">' +
+                  '<div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 opacity-30 blur-xl group-hover:opacity-60 transition duration-500"></div>' +
+                  '<div class="relative flex h-24 w-24 md:h-28 md:w-28 items-center justify-center rounded-3xl bg-slate-900 border border-sky-400/30 p-4 shadow-xl transition-transform group-hover:scale-105">' +
+                    '<img src="' + LOGO_SVG + '" alt="WirelessAlien Logo" class="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(56,189,248,0.7)]" />' +
+                  '</div>' +
+                '</div>' +
+                '<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-on-background mb-4">Hello, I&#39;m WirelessAlien</h1>' +
+                '<h2 class="text-xl md:text-2xl text-on-surface-variant font-medium mb-8 max-w-2xl">A passionate Android Developer from Earth</h2>' +
+                '<p class="text-lg text-on-surface-variant max-w-3xl mb-10 leading-relaxed">Crafting exceptional mobile experiences through clean code, user-centric design, and continuous learning.</p>' +
+                '<div class="flex flex-col sm:flex-row items-center justify-center gap-4">' +
+                  '<button type="button" data-action="scroll" data-target="projects" class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-colors bg-primary text-on-primary hover:bg-primary/90 shadow-sm h-10 cursor-pointer">View My Work</button>' +
+                  '<button type="button" data-action="nav" data-path="/contact" class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-colors bg-secondary-container text-on-secondary-container hover:bg-secondary-container/80 h-10 cursor-pointer">Start a Conversation</button>' +
+                '</div>' +
+              '</section>' +
+              /* About */
+              '<section id="about" class="py-24 bg-surface-container-low px-6">' +
+                '<div class="max-w-7xl mx-auto">' +
+                  '<div class="flex flex-col md:flex-row gap-16 items-start">' +
+                    '<div class="flex-1">' +
+                      '<h2 class="text-3xl font-bold text-on-background mb-6">About Me</h2>' +
+                      '<p class="text-lg text-on-surface-variant leading-relaxed mb-6">I specialize in building high-performance, intuitive Android applications that solve real-world problems. With a keen eye for design and a commitment to writing clean, maintainable code, I bring ideas to life on the small screen.</p>' +
+                    '</div>' +
+                    '<div class="flex-1 w-full">' +
+                      '<div class="bg-surface rounded-[28px] p-8 shadow-sm border border-outline-variant/30">' +
+                        '<h3 class="text-2xl font-bold text-on-background mb-6 flex items-center gap-3">' + icons.code2 + ' Technical Arsenal</h3>' +
+                        '<div class="flex flex-wrap gap-3">' + skillsHtml + '</div>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+              '</section>' +
+              /* Projects */
+              '<section id="projects" class="py-24 bg-surface px-6">' +
+                '<div class="max-w-7xl mx-auto">' +
+                  '<div class="mb-16">' +
+                    '<h2 class="text-3xl font-bold text-on-background mb-4">Featured Projects</h2>' +
+                    '<p class="text-lg text-on-surface-variant max-w-2xl">A selection of Android applications I&#39;ve built, focusing on clean architecture and smooth user experiences.</p>' +
+                  '</div>' +
+                  '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">' + projectsHtml + '</div>' +
+                '</div>' +
+              '</section>' +
+              /* Contact CTA */
+              '<section id="contact" class="py-24 bg-surface px-6">' +
+                '<div class="max-w-5xl mx-auto">' +
+                  '<div class="bg-primary text-on-primary rounded-[32px] p-10 md:p-16 text-center shadow-lg relative overflow-hidden">' +
+                    '<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-on-primary/10 blur-2xl"></div>' +
+                    '<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-on-primary/10 blur-2xl"></div>' +
+                    '<div class="relative z-10">' +
+                      '<h2 class="text-3xl md:text-5xl font-bold mb-6">Need a Custom Solution?</h2>' +
+                      '<p class="text-lg md:text-xl text-primary-container max-w-2xl mx-auto mb-10 leading-relaxed">I am available for contract work and custom Android development. Whether it&#39;s performance optimization or building an MVP from scratch, let&#39;s build something great together.</p>' +
+                      '<div class="flex flex-col sm:flex-row items-center justify-center gap-4">' +
+                        '<button type="button" data-action="nav" data-path="/contact" class="inline-flex items-center justify-center gap-2 rounded-full bg-on-primary text-primary hover:bg-on-primary/90 h-14 px-8 text-lg font-medium transition-colors cursor-pointer">' +
+                          icons.messageSquare + '<span>Contact Me</span>' +
+                        '</button>' +
+                      '</div>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+              '</section>' +
+            '</main>'
+          );
+        }
+
+        function renderProjectDetails(projectId) {
+          var project = null;
+          for (var i = 0; i < projectsData.length; i++) {
+            if (projectsData[i].id === projectId) {
+              project = projectsData[i];
+              break;
+            }
+          }
+          if (!project) {
+            return (
+              '<div class="pt-24 pb-20 min-h-[calc(100vh-200px)] flex flex-col items-center justify-center px-6 text-center">' +
+                '<h1 class="text-3xl font-bold text-on-background mb-4">Project Not Found</h1>' +
+                '<p class="text-on-surface-variant mb-8">The project you are looking for does not exist.</p>' +
+                '<button type="button" data-action="nav" data-path="/" class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium bg-primary text-on-primary hover:bg-primary/90 shadow-sm h-10 cursor-pointer">' +
+                  icons.arrowLeft + '<span>Back to Home</span>' +
+                '</button>' +
+              '</div>'
+            );
+          }
+
+          var tagsHtml = project.tags.map(function (tag) {
+            return '<span class="px-3 py-1 text-xs font-medium bg-surface-variant rounded-full text-on-surface-variant border border-outline-variant/30">' + tag + '</span>';
+          }).join("");
+
+          var featuresHtml = project.features.map(function (feature) {
+            return (
+              '<li class="flex items-start gap-3">' +
+                '<span class="text-primary shrink-0 mt-1">' + icons.checkCircle2 + '</span>' +
+                '<span class="text-on-surface-variant text-lg leading-relaxed">' + feature + '</span>' +
+              '</li>'
+            );
+          }).join("");
+
+          return (
+            '<div class="pt-24 pb-20 lg:pt-32 min-h-[calc(100vh-200px)] flex flex-col px-6">' +
+              '<div class="max-w-4xl mx-auto w-full flex-1">' +
+                '<div class="mb-8">' +
+                  '<button type="button" data-action="nav" data-path="/" class="inline-flex items-center gap-2 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer">' +
+                    icons.arrowLeft + ' <span>Back to Projects</span>' +
+                  '</button>' +
+                '</div>' +
+                '<div class="flex flex-col md:flex-row gap-10 items-start">' +
+                  '<div class="w-full md:w-1/3 aspect-square ' + project.color + ' rounded-[32px] flex items-center justify-center relative overflow-hidden shadow-sm">' +
+                    '<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-tertiary/10 mix-blend-overlay"></div>' +
+                    '<img src="' + project.icon + '" alt="' + project.title + '" class="w-32 h-32 md:w-48 md:h-48 rounded-3xl object-contain drop-shadow-xl z-10" />' +
+                  '</div>' +
+                  '<div class="flex-1 w-full">' +
+                    '<div class="flex flex-wrap gap-2 mb-4">' + tagsHtml + '</div>' +
+                    '<h1 class="text-4xl md:text-5xl font-bold text-on-background mb-4">' + project.title + '</h1>' +
+                    '<p class="text-xl text-on-surface-variant mb-8 leading-relaxed">' + project.description + '</p>' +
+                    '<a href="' + project.link + '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-on-primary hover:bg-primary/90 shadow-sm mb-10 text-base h-12 px-8 font-medium transition-colors">' +
+                      (project.type === "github" ? icons.github : icons.externalLink) +
+                      '<span>' + (project.type === "github" ? "View Source Code" : "View on Play Store") + '</span>' +
+                    '</a>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">' +
+                  '<div>' +
+                    '<h2 class="text-2xl font-bold text-on-background mb-6">About the Project</h2>' +
+                    '<p class="text-lg text-on-surface-variant leading-relaxed">' + project.longDescription + '</p>' +
+                  '</div>' +
+                  '<div class="bg-surface-container-low rounded-[28px] p-8 border border-outline-variant/30">' +
+                    '<h2 class="text-2xl font-bold text-on-background mb-6">Key Features</h2>' +
+                    '<ul class="space-y-4">' + featuresHtml + '</ul>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>'
+          );
+        }
+
+        function renderDonate() {
+          return (
+            '<div class="pt-24 pb-20 lg:pt-32 min-h-[calc(100vh-200px)] flex flex-col px-6">' +
+              '<div class="max-w-3xl mx-auto w-full flex-1">' +
+                '<div class="text-center mb-12">' +
+                  '<div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-container text-primary mb-6 shadow-sm">' +
+                    icons.heart +
+                  '</div>' +
+                  '<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-background mb-4">Support My Work</h1>' +
+                  '<p class="text-lg text-on-surface-variant max-w-2xl mx-auto">If you find my open-source projects helpful, consider making a donation. Your support helps me maintain and create more tools for the community.</p>' +
+                '</div>' +
+                '<div class="space-y-4">' +
+                  '<a href="https://ko-fi.com/wirelessalien" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                    '<div class="flex items-center gap-6">' +
+                      '<div class="h-14 w-14 rounded-xl bg-[#29abe0] flex items-center justify-center text-white shrink-0"><span class="font-bold text-xl">K</span></div>' +
+                      '<div><h3 class="text-lg font-bold text-on-surface mb-1">Ko-Fi</h3><p class="text-sm text-on-surface-variant">Buy me a coffee &bull; One-time donation</p></div>' +
+                    '</div>' +
+                    '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                  '</a>' +
+                  '<a href="https://paypal.me/WirelessAlien" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                    '<div class="flex items-center gap-6">' +
+                      '<div class="h-14 w-14 rounded-xl bg-[#003087] flex items-center justify-center text-white shrink-0"><span class="font-bold text-xl">P</span></div>' +
+                      '<div><h3 class="text-lg font-bold text-on-surface mb-1">PayPal</h3><p class="text-sm text-on-surface-variant">Fast &amp; easy transfer</p></div>' +
+                    '</div>' +
+                    '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                  '</a>' +
+                  '<a href="https://liberapay.com/wirelessalien" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                    '<div class="flex items-center gap-6">' +
+                      '<div class="h-14 w-14 rounded-xl bg-[#F6C915] flex items-center justify-center text-black shrink-0"><span class="font-bold text-xl">L</span></div>' +
+                      '<div><h3 class="text-lg font-bold text-on-surface mb-1">Liberapay</h3><p class="text-sm text-on-surface-variant">Open-source funding</p></div>' +
+                    '</div>' +
+                    '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                  '</a>' +
+                '</div>' +
+                '<div class="mt-16 text-center">' +
+                  '<p class="text-on-surface-variant text-sm mb-4">Not ready to donate? Starring my repositories on GitHub also helps a lot!</p>' +
+                  '<a href="https://github.com/WirelessAlien" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-medium hover:underline">' +
+                    icons.github + '<span>View GitHub Profile</span>' +
+                  '</a>' +
+                '</div>' +
+              '</div>' +
+            '</div>'
+          );
+        }
+
+        function escapeAttr(val) {
+          return String(val || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        function renderContactPage() {
+          var formContainerHtml = "";
+          if (state.formStatus === "success") {
+            formContainerHtml =
+              '<div class="py-12 flex flex-col items-center text-center">' +
+                '<div class="h-16 w-16 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-6">' +
+                  icons.checkCircle2 +
+                '</div>' +
+                '<h2 class="text-2xl font-bold text-on-background mb-3">Message Sent!</h2>' +
+                '<p class="text-on-surface-variant max-w-md mb-8 leading-relaxed">Thank you for reaching out. Your response has been submitted to Google Forms. I&#39;ll get back to you as soon as possible.</p>' +
+                '<button type="button" data-action="reset-form" class="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium bg-primary text-on-primary hover:bg-primary/90 shadow-sm h-10 cursor-pointer">Send Another Message</button>' +
+              '</div>';
+          } else {
+            var errorBanner = "";
+            if (state.formStatus === "error") {
+              errorBanner =
+                '<div class="flex items-center gap-3 p-4 rounded-2xl bg-error/10 border border-error/30 text-error text-sm">' +
+                  '<span class="shrink-0">' + icons.alertCircle + '</span>' +
+                  '<span>' + escapeAttr(state.formError || "Failed to send message. Please try again.") + '</span>' +
+                '</div>';
+            }
+            formContainerHtml =
+              '<form id="contact-form" class="space-y-6">' +
+                '<div>' +
+                  '<label for="name" class="block text-sm font-semibold text-on-surface mb-2">Name <span class="text-error">*</span></label>' +
+                  '<div class="relative">' +
+                    '<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant/70">' + icons.user + '</div>' +
+                    '<input type="text" id="name" name="name" required placeholder="Your name" value="' + escapeAttr(state.formData.name) + '" class="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all" />' +
+                  '</div>' +
+                '</div>' +
+                '<div>' +
+                  '<label for="address" class="block text-sm font-semibold text-on-surface mb-2">Address <span class="text-xs text-on-surface-variant font-normal">(Optional)</span></label>' +
+                  '<div class="relative">' +
+                    '<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant/70">' + icons.mapPin + '</div>' +
+                    '<input type="text" id="address" name="address" placeholder="City, Country or location" value="' + escapeAttr(state.formData.address) + '" class="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all" />' +
+                  '</div>' +
+                '</div>' +
+                '<div>' +
+                  '<label for="phone" class="block text-sm font-semibold text-on-surface mb-2">Phone number <span class="text-xs text-on-surface-variant font-normal">(Optional)</span></label>' +
+                  '<div class="relative">' +
+                    '<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-on-surface-variant/70">' + icons.phone + '</div>' +
+                    '<input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" value="' + escapeAttr(state.formData.phone) + '" class="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all" />' +
+                  '</div>' +
+                '</div>' +
+                '<div>' +
+                  '<label for="message" class="block text-sm font-semibold text-on-surface mb-2">Message <span class="text-error">*</span></label>' +
+                  '<div class="relative">' +
+                    '<div class="absolute top-3.5 left-0 pl-4 flex items-start pointer-events-none text-on-surface-variant/70">' + icons.messageSquare + '</div>' +
+                    '<textarea id="message" name="message" required rows="5" placeholder="Tell me about your project, inquiry, or question..." class="w-full pl-11 pr-4 py-3 bg-surface rounded-2xl border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50 outline-none transition-all resize-y">' + escapeAttr(state.formData.message) + '</textarea>' +
+                  '</div>' +
+                '</div>' +
+                errorBanner +
+                '<button type="submit" ' + (state.formStatus === "submitting" ? "disabled" : "") + ' class="w-full h-12 rounded-full bg-primary text-on-primary hover:bg-primary/90 shadow-sm text-base font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer disabled:opacity-50">' +
+                  icons.send +
+                  '<span>' + (state.formStatus === "submitting" ? "Submitting to Google Forms..." : "Send Message") + '</span>' +
+                '</button>' +
+                '<p class="text-center text-xs text-on-surface-variant/70">Data submitted is sent securely to Google Forms.</p>' +
+              '</form>';
+          }
+
+          return (
+            '<div class="pt-24 pb-20 lg:pt-32 min-h-[calc(100vh-200px)] flex flex-col px-6">' +
+              '<div class="max-w-4xl mx-auto w-full flex-1">' +
+                '<div class="mb-8">' +
+                  '<button type="button" data-action="nav" data-path="/" class="inline-flex items-center gap-2 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors cursor-pointer">' +
+                    icons.arrowLeft + ' <span>Back to Home</span>' +
+                  '</button>' +
+                '</div>' +
+                '<div class="text-center mb-12">' +
+                  '<div class="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-container text-primary mb-6 shadow-sm">' +
+                    icons.mail +
+                  '</div>' +
+                  '<h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-background mb-4">Contact Me</h1>' +
+                  '<p class="text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">' +
+                    'Please fill out the form below to get in touch with me. You can also reach me directly via email at ' +
+                    '<a href="mailto:dev.abhilash.s@gmail.com" class="text-primary font-medium hover:underline">dev.abhilash.s@gmail.com</a>' +
+                    ' or on Telegram at ' +
+                    '<a href="https://t.me/WirelessAlien" target="_blank" rel="noopener noreferrer" class="text-primary font-medium hover:underline">@WirelessAlien</a>.' +
+                  '</p>' +
+                '</div>' +
+                '<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">' +
+                  '<div class="lg:col-span-7 bg-surface-container-low rounded-[32px] p-8 md:p-10 border border-outline-variant/30 shadow-sm">' +
+                    formContainerHtml +
+                  '</div>' +
+                  '<div class="lg:col-span-5 space-y-4">' +
+                    '<h2 class="text-xl font-bold text-on-background px-2 mb-2">Direct Channels</h2>' +
+                    '<a href="mailto:dev.abhilash.s@gmail.com" class="group flex items-center justify-between p-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                      '<div class="flex items-center gap-4">' +
+                        '<div class="h-12 w-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">' + icons.mail + '</div>' +
+                        '<div><h3 class="text-base font-bold text-on-surface">Email</h3><p class="text-sm text-on-surface-variant">dev.abhilash.s@gmail.com</p></div>' +
+                      '</div>' +
+                      '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                    '</a>' +
+                    '<a href="https://t.me/WirelessAlien" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                      '<div class="flex items-center gap-4">' +
+                        '<div class="h-12 w-12 rounded-xl bg-[#24A1DE]/15 text-[#24A1DE] flex items-center justify-center shrink-0 group-hover:bg-[#24A1DE] group-hover:text-white transition-colors">' + icons.send + '</div>' +
+                        '<div><h3 class="text-base font-bold text-on-surface">Telegram</h3><p class="text-sm text-on-surface-variant">@WirelessAlien</p></div>' +
+                      '</div>' +
+                      '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                    '</a>' +
+                    '<a href="https://x.com/wirelessalien" target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between p-5 rounded-2xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all hover:bg-surface-container">' +
+                      '<div class="flex items-center gap-4">' +
+                        '<div class="h-12 w-12 rounded-xl bg-surface-variant text-on-surface-variant flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">' +
+                          '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
+                        '</div>' +
+                        '<div><h3 class="text-base font-bold text-on-surface">Twitter / X</h3><p class="text-sm text-on-surface-variant">@wirelessalien</p></div>' +
+                      '</div>' +
+                      '<span class="text-primary/50 group-hover:text-primary transition-colors">' + icons.externalLink + '</span>' +
+                    '</a>' +
+                    '<div class="pt-4">' +
+                      '<a href="https://docs.google.com/forms/d/e/1FAIpQLSfKV_w-QIsmMZS6cP3f6UjuSii-Xy8XiIh1Mw4FEo_CTl4I9A/viewform" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 p-3 text-xs text-on-surface-variant hover:text-primary rounded-xl hover:bg-surface-variant transition-colors">' +
+                        '<span>Prefer the original Google Form?</span>' +
+                        '<span class="font-semibold underline flex items-center gap-1">Open Form ' + icons.externalLink + '</span>' +
+                      '</a>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>'
+          );
+        }
+
+        function renderFooter() {
+          var currentYear = new Date().getFullYear();
+          return (
+            '<footer class="bg-surface-container-low border-t border-outline-variant/30 py-12 px-6">' +
+              '<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">' +
+                '<button type="button" data-action="nav" data-path="/" class="flex items-center gap-3 group cursor-pointer">' +
+                  '<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 border border-sky-500/20 shadow-sm p-1.5 transition-transform group-hover:scale-105">' +
+                    '<img src="' + LOGO_SVG + '" alt="WirelessAlien" class="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(56,189,248,0.6)]" />' +
+                  '</div>' +
+                  '<span class="text-xl font-bold tracking-tight text-on-background">WirelessAlien</span>' +
+                '</button>' +
+                '<div class="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-on-surface-variant">' +
+                  '<button type="button" data-action="nav" data-path="/" class="hover:text-primary transition-colors cursor-pointer">Home</button>' +
+                  '<button type="button" data-action="scroll" data-target="projects" class="hover:text-primary transition-colors cursor-pointer">Projects</button>' +
+                  '<button type="button" data-action="nav" data-path="/contact" class="hover:text-primary transition-colors cursor-pointer">Contact</button>' +
+                  '<button type="button" data-action="nav" data-path="/donate" class="hover:text-primary transition-colors cursor-pointer">Donate</button>' +
+                '</div>' +
+                '<div class="flex items-center gap-3">' +
+                  '<a href="https://t.me/WirelessAlien" target="_blank" rel="noopener noreferrer" class="flex h-11 w-11 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-[#24A1DE] hover:text-white transition-all" aria-label="Telegram">' + icons.send + '</a>' +
+                  '<a href="https://x.com/wirelessalien" target="_blank" rel="noopener noreferrer" class="flex h-11 w-11 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-on-primary transition-all" aria-label="Twitter/X">' + icons.twitter + '</a>' +
+                  '<a href="https://github.com/WirelessAlien" target="_blank" rel="noopener noreferrer" class="flex h-11 w-11 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-on-primary transition-all" aria-label="GitHub">' + icons.github + '</a>' +
+                  '<a href="mailto:dev.abhilash.s@gmail.com" class="flex h-11 w-11 items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-primary hover:text-on-primary transition-all" aria-label="Email">' + icons.mail + '</a>' +
+                '</div>' +
+              '</div>' +
+              '<div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-outline-variant/20 text-center">' +
+                '<p class="text-sm text-on-surface-variant">&copy; ' + currentYear + ' WirelessAlien. All rights reserved.</p>' +
+              '</div>' +
+            '</footer>'
+          );
+        }
+
+        function render() {
+          var rootEl = document.getElementById("root");
+          if (!rootEl) return;
+
+          var pageHtml = "";
+          if (state.route === "/donate") {
+            pageHtml = renderDonate();
+          } else if (state.route === "/contact") {
+            pageHtml = renderContactPage();
+          } else if (state.route.indexOf("/project/") === 0) {
+            var projectId = state.route.replace("/project/", "");
+            pageHtml = renderProjectDetails(projectId);
+          } else {
+            pageHtml = renderHome();
+          }
+
+          rootEl.innerHTML =
+            '<div class="min-h-screen flex flex-col bg-surface font-sans text-on-background selection:bg-primary-container selection:text-on-primary-container">' +
+              renderTopAppBar() +
+              '<div class="flex-1">' + pageHtml + '</div>' +
+              renderFooter() +
+            '</div>';
+
+          var formEl = document.getElementById("contact-form");
+          if (formEl) {
+            formEl.addEventListener("input", function (e) {
+              var target = e.target;
+              if (target && target.name && state.formData.hasOwnProperty(target.name)) {
+                state.formData[target.name] = target.value;
+              }
+            });
+            formEl.addEventListener("submit", function (e) {
+              e.preventDefault();
+              if (!state.formData.name.trim() || !state.formData.message.trim()) {
+                state.formStatus = "error";
+                state.formError = "Please fill in your name and message.";
+                render();
+                return;
+              }
+              state.formStatus = "submitting";
+              state.formError = "";
+              render();
+
+              var formBody = new URLSearchParams();
+              formBody.append(ENTRY_IDS.name, state.formData.name);
+              formBody.append(ENTRY_IDS.address, state.formData.address);
+              formBody.append(ENTRY_IDS.phone, state.formData.phone);
+              formBody.append(ENTRY_IDS.message, state.formData.message);
+
+              fetch(GOOGLE_FORM_ACTION_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: formBody.toString()
+              }).then(function () {
+                state.formStatus = "success";
+                state.formData = { name: "", address: "", phone: "", message: "" };
+                render();
+              }).catch(function () {
+                state.formStatus = "error";
+                state.formError = "There was an issue sending your message. Please try again or reach out directly via email or Telegram.";
+                render();
+              });
+            });
+          }
+        }
+
+        document.addEventListener("click", function (e) {
+          var btn = e.target.closest("[data-action]");
+          if (!btn) return;
+          var action = btn.getAttribute("data-action");
+          if (action === "nav") {
+            e.preventDefault();
+            navigate(btn.getAttribute("data-path") || "/");
+          } else if (action === "scroll") {
+            e.preventDefault();
+            scrollToSection(btn.getAttribute("data-target") || "projects");
+          } else if (action === "toggle-theme") {
+            e.preventDefault();
+            toggleTheme();
+          } else if (action === "toggle-menu") {
+            e.preventDefault();
+            state.isMenuOpen = !state.isMenuOpen;
+            render();
+          } else if (action === "reset-form") {
+            e.preventDefault();
+            state.formStatus = "idle";
+            state.formError = "";
+            render();
+          }
+        });
+
+        window.addEventListener("popstate", function () {
+          state.route = parseHashRoute();
+          render();
+          if (state.route === "/about") {
+            setTimeout(function () { scrollToSection("about"); }, 50);
+          } else if (state.route === "/projects") {
+            setTimeout(function () { scrollToSection("projects"); }, 50);
+          }
+        });
+
+        if (window.matchMedia) {
+          window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+            if (state.theme === "system") {
+              applyTheme();
+            }
+          });
+        }
+
+        applyTheme();
+        state.route = parseHashRoute();
+        render();
+        if (state.route === "/about") {
+          setTimeout(function () { scrollToSection("about"); }, 60);
+        } else if (state.route === "/projects") {
+          setTimeout(function () { scrollToSection("projects"); }, 60);
+        }
+      })();
+    </script>
+  </body>
+</html>
