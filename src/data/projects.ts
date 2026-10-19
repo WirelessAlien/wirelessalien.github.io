@@ -17,7 +17,7 @@ export const projectsData = [
     tags: ['Android', 'Kotlin', 'Open Source'],
     color: 'bg-blue-100',
     type: 'github',
-    icon: './showcase_icon.png'
+    icon: '/showcase_icon.png'
   },
   {
     id: 'zipxtract',
@@ -35,7 +35,7 @@ export const projectsData = [
     tags: ['Android', 'Kotlin', 'Open Source'],
     color: 'bg-indigo-100',
     type: 'github',
-    icon: './zipxtract_icon.png'
+    icon: '/zipxtract_icon.png'
   },
   {
     id: 'bhagavadgitaapp',
@@ -53,7 +53,7 @@ export const projectsData = [
     tags: ['Android', 'Kotlin', 'Open Source'],
     color: 'bg-purple-100',
     type: 'github',
-    icon: './gita_icon.png'
+    icon: '/gita_icon.png'
   },
   {
     id: 'files',
@@ -74,6 +74,6 @@ export const projectsData = [
     tags: ['Android', 'Kotlin', 'Closed Source'],
     color: 'bg-emerald-100',
     type: 'playstore',
-    icon: './files_icon.png'
+    icon: '/files_icon.png'
   }
 ];
