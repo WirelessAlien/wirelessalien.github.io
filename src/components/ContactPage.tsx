@@ -107,7 +107,7 @@ export function ContactPage() {
                 </div>
                 <h2 className="text-2xl font-bold text-on-background mb-3">Message Sent!</h2>
                 <p className="text-on-surface-variant max-w-md mb-8 leading-relaxed">
-                  Thank you for reaching out. Your response has been submitted to Google Forms. I'll get back to you as soon as possible.
+                  Thank you for reaching out. Your response has been submitted. I'll get back to you as soon as possible.
                 </p>
                 <Button 
                   variant="filled" 

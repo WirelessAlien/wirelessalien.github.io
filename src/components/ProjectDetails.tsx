@@ -68,7 +68,7 @@ export function ProjectDetails() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="mt-16 flex flex-col gap-10">
           <div>
             <h2 className="text-2xl font-bold text-on-background mb-6">About the Project</h2>
             <p className="text-lg text-on-surface-variant leading-relaxed">
